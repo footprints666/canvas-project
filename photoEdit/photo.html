@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas-photo</title>
+    <link rel="stylesheet" href="photo.css" class="rel">
+</head>
+<body>
+
+   <!--  canvas需注意两点：
+    1.在第一个drawImage前，手动清除上次绘制的图片，否则合成后上次图像仍会叠加显示  ctx.clearRect(0, 0, 790, 340);
+    2.由于层级关系，要先画小人像，再画背景，才能让背景将小人像覆盖住。
+    3.document不需要加引号
+    4.必须用vscode打开，直接网页打开，无法显示合成效果
+    5.由于人像需要在背景图的下面，为解决选不到人像的问题，需要增加中间元素透明的div.drag来实现间接拖动人像的效果，需注意div.drag大小要与人像
+    大小相同，且是透明的，另外需要将div.drag的移动位子赋给小人像，从而使得drag.div和人像同步拖动。
+ -->
+
+    <div class="box">
+        <div class="box0">
+            <img class="img"  src=""  alt="">
+            <img class="bg" src=""  alt="">
+            <div class="drag"></div>
+            <canvas id="myCanvas" width="790" height="340"></canvas> 
+        </div>
+      
+        <div class="images">
+            <img src="images/10.png">
+            <img src="images/20.png">
+            <img src="images/30.png">
+            <img src="images/40.png">
+        </div>
+
+        <div class="people">
+           <img src="images/1.png">
+           <img src="images/2.png">
+           <img src="images/3.png">
+           <img src="images/4.png">
+        </div>
+
+        <div class="btn">图片合成</div>
+
+        <div class="news">
+            <img id="imgList" src="">
+        </div>
+    </div>
+     
+
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="photo.js"></script>
+
+</body>
+</html>
